@@ -43,21 +43,25 @@
 					<li class="nav-item">
 						<a class="nav-link" aria-current="page" href="/">Home</a>
 					</li>	
-					<li class="nav-item">
+					{{-- <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="">About</a>
-                    </li>
+                    </li> --}}
 	
-					<li class="nav-item">
+					{{-- <li class="nav-item">
 						<a class="nav-link" aria-current="page" href="">Blogs</a>
-					</li>	
+					</li>	 --}}
 					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="">Find Trips</a>
+						<a class="nav-link" aria-current="page" href="">Search</a>
 					</li>	
-					<li class="nav-item">
+					{{-- <li class="nav-item">
                         <a class="nav-link" href="">Contact Us</a>
-                    </li>
+                    </li> --}}
 									
-				</ul>			
+				</ul>		
+				
+				<div>
+					<a class="btn btn-primary" href="{{ route('account.createTrip') }}" type="submit">Create a Trip</a>
+				</div>
 				
 				
 
@@ -97,7 +101,7 @@
             <!-- Right Side: Social Media Links -->
             <div class="col-md-5 justify-content-end">
                 <ul class="nav justify-content-end text-aling-right">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link text-white" href="https://www.instagram.com/zest_fuljourney?igsh=MXd6eDM1bmczZTk5aA==" target="_blank">Facebook</a>
                     </li>
                     <li class="nav-item">
@@ -105,7 +109,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="https://www.instagram.com/zest_fuljourney?igsh=MXd6eDM1bmczZTk5aA==" target="_blank">Instagram</a>
-                    </li>
+                    </li> --}}
                     {{-- <li class="nav-item">
                         <a class="nav-link text-white" href="https://linkedin.com" target="_blank">LinkedIn</a>
                     </li> --}}
@@ -117,7 +121,7 @@
 
         <!-- Centered Copyright -->
         <div class="text-center mt-3">
-            <p class="text-white fw-bold fs-6">© 2025 TravelWith, All Rights Reserved</p>
+            <p class="text-white fw-bold fs-6">© 2025 Make Listing, All Rights Reserved</p>
         </div>
     </div>
 </footer>

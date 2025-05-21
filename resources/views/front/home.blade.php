@@ -5,9 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-xl-8">
-                <h1>Find your Travel Partner</h1>
-                <p>Thounsands of Partners available.</p>
-                <div class="banner-btn mt-5"><a href="" class="btn btn-primary mb-4 mb-sm-0">Explore Now</a></div>
+                <h1>Search Properties Around The Word</h1>
+                <p>Thounsands of properties available.</p>
+                <div class="banner-btn mt-5"><a href="" class="btn btn-primary mb-4 mb-sm-0">Search Me</a></div>
             </div>
         </div>
     </div>
