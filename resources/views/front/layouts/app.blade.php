@@ -60,7 +60,7 @@
 				</ul>		
 				
 				<div>
-					<a class="btn btn-primary" href="{{ route('account.createTrip') }}" type="submit">Create a Trip</a>
+					<a class="btn btn-primary" href="" type="submit">Create a Trip</a>
 				</div>
 				
 				

@@ -26,12 +26,12 @@
                 @include('front.message')
 
                 
-                <form action="" method="POST" id="createTripForm" name="createTripForm">
+                {{-- <form action="" method="POST" id="createTripForm" name="createTripForm">
                     @csrf
                   
                     <div class="card border-0 shadow mb-4 ">
                         <div class="card-body card-form p-4">
-                            {{-- <h3 class="fs-4 mb-1">Create a Trip</h3> --}}
+                            <!-- <h3 class="fs-4 mb-1">Create a Trip</h3> -->
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 
                                 <h3 class="fs-4 mb-1">Create a Trip</h3>
@@ -278,7 +278,7 @@
                             </div> 
                             
                     </div>
-                </form>
+                </form> --}}
             </div>
         </div>
     </div>
@@ -361,7 +361,7 @@
 <script>
     $(document).ready(function () {
         // Fetch trip limit information
-        $.get('/account/trip-limit', function (data) {
+        $.get('', function (data) {
             let remainingShort = data.remainingShortTrips;
             let remainingLong = data.remainingLongTrips;
 
@@ -418,7 +418,7 @@ $("#createTripForm").submit(function(e){
 
 
     $.ajax ({
-        url: '{{ route("account.saveTrip") }}',
+        url: '',
         type: 'POST', 
         dataType: 'json',
         data: $("#createTripForm").serialize() + "&_method=POST&_token={{ csrf_token() }}",
