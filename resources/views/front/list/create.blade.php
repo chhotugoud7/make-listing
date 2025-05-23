@@ -7,7 +7,7 @@
 
 
 <section class="section-5 bg-2">
-    <div class="container py-5">
+    <div class="container py-5 ">
         
         <div class="row">
             <div class="col">
@@ -26,259 +26,108 @@
                 @include('front.message')
 
                 
-                {{-- <form action="" method="POST" id="createTripForm" name="createTripForm">
+                 <form action="{{ route('savePost') }}" method="POST" enctype="multipart/form-data" id="createPostForm">
                     @csrf
-                  
-                    <div class="card border-0 shadow mb-4 ">
+
+                    <div class="card border-0 shadow mb-4">
                         <div class="card-body card-form p-4">
-                            <!-- <h3 class="fs-4 mb-1">Create a Trip</h3> -->
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                
-                                <h3 class="fs-4 mb-1">Create a Trip</h3>
-                                <div>
-                                    <label for="trip_type" class="me-2">Select Trip Type:</label>
-                                    <select id="trip_type" name="trip_type" class="form-control d-inline w-auto">
-                                        <option value="short" {{ old('trip_type', $trip->trip_type ?? 'short') == 'short' ? 'selected' : '' }}>Short Trip</option>
-                                        <option value="long" {{ old('trip_type', $trip->trip_type ?? 'short') == 'long' ? 'selected' : '' }}>Long Trip</option>
-                                        
+                            <h3 class="fs-4 mb-4">Create New Listing</h3>
+
+                            <!-- Title -->
+                            <div class="mb-4">
+                                <label for="title" class="mb-2">Title <span class="req">*</span></label>
+                                <input type="text" name="title" id="title" class="form-control" required>
+                                <p></p>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="mb-4">
+                                <label for="description" class="mb-2">Description <span class="req">*</span></label>
+                                <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
+                                <p></p>
+                            </div>
+
+                            <!-- Category & Subcategory -->
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="category_id" class="mb-2">Category <span class="req">*</span></label>
+                                    <select name="category_id" id="category_id" class="form-control" required>
+                                        <option value="">Select Category</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
-                                </div>
-
-                                
-                                
-                            </div>
-
-                            <div>
-                                <div class="col-md-6">
-                                    <p>Remaining Trips: <strong id="remainingTrips">Loading...</strong></p>
-                                </div>
-                            </div>
-                            
-                            <!-- Short Trip Form (Default) -->
-                            <div id="short_trip_form" class="">
-                                <div class="mb-4">
-                                    <label for="title" class="mb-2">Trip Title <span class="req">*</span></label>
-                                    <input type="text" placeholder="Trip Title" id="title" name="title" class="form-control">
                                     <p></p>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label for="origin" class="mb-2">From <span class="req">*</span></label>
-                                        <input type="text" placeholder="Starting Location" id="origin" name="origin" class="form-control">
-                                        <p></p>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label for="destination" class="mb-2">To <span class="req">*</span></label>
-                                        <input type="text" placeholder="Destination" id="destination" name="destination" class="form-control">
-                                        <p></p>
-                                    </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label for="start_date" class="mb-2">Start Date <span class="req">*</span></label>
-                                        <input type="text" id="start_date" name="start_date" class="form-control datepicker">
-                                        <p></p>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label for="end_date" class="mb-2">End Date <span class="req">*</span></label>
-                                        <input type="text" id="end_date" name="end_date" class="form-control datepicker">
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                                <!-- Additional Fields for Short Trip -->
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label for="vehicle" class="mb-2">Vehicle Type<span class="req">*</span></label>
-                                        <select id="vehicle" name="vehicle" class="form-control">
-                                            <option value="car">Car</option>
-                                            <option value="bike">Bike</option>
-                                            <option value="bus">Bus</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                        <p></p>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label for="amount" class="mb-2">Amount Per Person (₹)<span class="req">*</span></label>
-                                        <input type="number" id="amount" name="amount" class="form-control">
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                               
-                                <div class="mb-4">
-                                    <label for="persons" class="mb-2">Seat Available<span class="req">*</span></label>
-                                    <select id="persons" name="persons" class="form-control">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="10+">10+</option>
+                                <div class="col-md-6 mb-4">
+                                    <label for="subcategory_id" class="mb-2">Subcategory</label>
+                                    <select name="subcategory_id" id="subcategory_id" class="form-control">
+                                        <option value="">Select Subcategory</option>
+                                        <!-- Subcategories will be loaded via JS based on category -->
                                     </select>
                                     <p></p>
                                 </div>
-
-                                <div class="mb-4">
-                                    <label for="short_description" class="mb-2">Description</label>
-                                    <textarea class="form-control" name="short_description" id="short_description" cols="5" rows="5"></textarea>
-                                    <p></p>
-                                </div>
-
-                               
                             </div>
 
-                            <!-- Long Trip Form (Initially Hidden) -->
-                            <div id="long_trip_form" style="display: none;">
-                                <div class="mb-4">
-                                    <label for="long_title" class="mb-2">Trip Title <span class="req">*</span></label>
-                                    <input type="text" placeholder="Trip Title" id="long_title" name="long_title" class="form-control">
-                                    <p></p>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label for="long_origin" class="mb-2">From <span class="req">*</span></label>
-                                        <input type="text" placeholder="Starting Location" id="long_origin" name="long_origin" class="form-control">
-                                        <p></p>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label for="long_destination" class="mb-2">To <span class="req">*</span></label>
-                                        <input type="text" placeholder="Destination" id="long_destination" name="long_destination" class="form-control">
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label for="long_start_date" class="mb-2">Start Date <span class="req">*</span></label>
-                                        <input type="text" id="long_start_date" name="long_start_date" class="form-control datepicker">
-                                        <p></p>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label for="long_end_date" class="mb-2">End Date <span class="req">*</span></label>
-                                        <input type="text" id="long_end_date" name="long_end_date" class="form-control datepicker">
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                                <!-- Additional Fields for Long Trip -->
-                                <div class="mb-4">
-                                    <label for="age" class="mb-2">Your Age <span class="req">*</span></label>
-                                    <input type="number" id="age" name="age" class="form-control" placeholder="Enter your age">
-                                    <p></p>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <label for="facebook_url" class="mb-2">Facebook Profile</label>
-                                    <input type="url" id="facebook_url" name="facebook_url" class="form-control" placeholder="Facebook Profile URL">
-                                    <p></p>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <label for="instagram_url" class="mb-2">Instagram Profile</label>
-                                    <input type="url" id="instagram_url" name="instagram_url" class="form-control" placeholder="Instagram Profile URL">
-                                    <p></p>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label for="smoke" class="mb-2">Do You Smoke? <span class="req">*</span></label>
-                                        <select id="smoke" name="smoke" class="form-control">
-                                            <option value="">Select</option>
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p></p>
-                                    </div>
-                                
-                                    <div class="col-md-6 mb-4">
-                                        <label for="drink" class="mb-2">Do You Drink? <span class="req">*</span></label>
-                                        <select id="drink" name="drink" class="form-control">
-                                            <option value="">Select</option>
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p></p>
-                                    </div>
-                                
-
-                                </div>
-                                <div class="row">
-                                  
-                                    <div class="col-md-6 mb-4">
-                                        <label for="food_preference" class="mb-2">Food Preference <span class="req">*</span></label>
-                                        <select id="food_preference" name="food_preference" class="form-control">
-                                            <option value="">Select</option>
-                                            <option value="veg">Veg</option>
-                                            <option value="non-veg">Non-Veg</option>
-                                        </select>
-                                        <p></p>
-                                    </div>
-                                    
-                                    <div class="col-md-6 mb-4">
-                                        <label for="swimming_pool" class="mb-2">Swimming Pool?<span class="req">*</span></label>
-                                        <select id="swimming_pool" name="swimming_pool" class="form-control">
-                                            <option value="">Select</option>
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p></p>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label for="night_party" class="mb-2">night_party? <span class="req">*</span></label>
-                                        <select id="night_party" name="night_party" class="form-control">
-                                            <option value="">Select</option>
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p></p>
-                                    </div>
-                                
-                                    <div class="col-md-6 mb-4">
-                                        <label for="bike_ride" class="mb-2">bike_ride? <span class="req">*</span></label>
-                                        <select id="bike_ride" name="bike_ride" class="form-control">
-                                            <option value="">Select</option>
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                        <p></p>
-                                    </div>
-                                </div>
-
-                               
-
-                                
-                                <div class="mb-4">
-                                    <label for="long_description" class="mb-2">Description</label>
-                                    <textarea class="form-control" name="long_description" id="long_description" cols="5" rows="5"></textarea>
-                                    <p></p>
-                                </div>
-                            
-                         
+                            <!-- Location: Country > State > City -->
+                            <div class="mb-4">
+                            <label for="location" class="mb-2">Location <span class="req">*</span></label>
+                            <input type="text" name="location" id="location" class="form-control" placeholder="Enter full address or area" required>
+                            <input type="hidden" name="latitude" id="latitude">
+                            <input type="hidden" name="longitude" id="longitude">
+                                <p></p>
                             </div>
 
-                           
-                            
-                        </div> 
-                          
-                            <div class="card-footer p-4">
-                                <button id="saveTripBtn" type="submit" class="btn btn-primary">Post a Trip</button>
-                            </div> 
-                            
+                            <!-- Price -->
+                            <div class="mb-4">
+                                <label for="price" class="mb-2">Price (₹)</label>
+                                <input type="number" name="price" id="price" class="form-control" placeholder="Enter price">
+                                <p></p>
+                            </div>
+
+                            <!-- Image Uploads -->
+                            <div class="mb-4">
+                                <label for="images" class="mb-2">Upload Images</label>
+                                <input type="file" name="images[]" id="images" class="form-control" multiple>
+                                <p></p>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="contact_name" class="mb-2">Your Name <span class="req">*</span></label>
+                                <input type="text" name="contact_name" id="contact_name" class="form-control" required>
+                                <p></p>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="email" class="mb-2">Email Address <span class="req">*</span></label>
+                                <input type="email" name="email" id="email" class="form-control" required>
+                                <p></p>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="phone" class="mb-2">Phone Number <span class="req">*</span></label>
+                                <input type="tel" name="phone" id="phone" class="form-control" required>
+                                <p></p>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="tags" class="mb-2">Tags (optional)</label>
+                                <input type="text" name="tags" id="tags" class="form-control" placeholder="e.g. mobile, second-hand, Samsung">
+                                <p></p>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="card-footer p-4">
+                            <button type="submit" class="btn btn-primary">Submit Listing</button>
+                        </div>
                     </div>
-                </form> --}}
+                </form>
+
+
             </div>
         </div>
     </div>
@@ -299,6 +148,37 @@
 @section('customjs')
 
 
+<script>
+$(document).ready(function() {
+    $('#category_id').on('change', function() {
+        let categoryId = $(this).val();
+        if(categoryId) {
+            $.ajax({
+                url: '/subcategories/' + categoryId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    $('#subcategory_id').empty();
+                    $('#subcategory_id').append('<option value="">Select Subcategory</option>');
+                    $.each(data, function(key, subcategory) {
+                        $('#subcategory_id').append('<option value="'+subcategory.id+'">'+subcategory.name+'</option>');
+                    });
+                },
+                error: function() {
+                    $('#subcategory_id').empty();
+                    $('#subcategory_id').append('<option value="">No subcategories found</option>');
+                }
+            });
+        } else {
+            $('#subcategory_id').empty();
+            $('#subcategory_id').append('<option value="">Select Subcategory</option>');
+        }
+    });
+});
+</script>
+
+
+
 
 <script>
     $(document).ready(function() {
@@ -315,101 +195,64 @@
     $(".datepicker").on("keydown", function(e) {
         e.preventDefault();
     });
-    $(document).ready(function() {
-    // Show or hide trip type forms based on selection
-    function toggleTripType() {
-        if ($("#trip_type").val() === "short") {
-            $("#short_trip_form").show();
-            $("#long_trip_form").hide();
-        } else {
-            $("#short_trip_form").hide();
-            $("#long_trip_form").show();
-        }
-    }
-
-
-    $("#trip_type").change(toggleTripType);
-    toggleTripType(); // Ensure correct form is shown on page load
-});
+ 
 
 });
 
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let tripType = document.getElementById("trip_type").value;
-        
-        // Show/hide forms based on selected trip type
-        toggleTripForms(tripType);
-    
-        document.getElementById("trip_type").addEventListener("change", function () {
-            toggleTripForms(this.value);
-        });
-    
-        function toggleTripForms(type) {
-            document.getElementById("short_trip_form").style.display = (type === "short") ? "block" : "none";
-            document.getElementById("long_trip_form").style.display = (type === "long") ? "block" : "none";
-        }
-    });
-    </script>
     
 
+<script type="text/javascript">
+$('#createPostForm').submit(function(e){
+    e.preventDefault();
+    $("button[type='submit']").prop('disabled', true);
+
+    var formData = new FormData(this);
+
+    
+    $.ajax({
+    url: '{{ route("savePost") }}',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+     success: function(response) {
+
+        console.log("AJAX Response:", response); // Add this
 
 
-{{-- code for 3 long 3 short trips  --}}
-<script>
-    $(document).ready(function () {
-        // Fetch trip limit information
-        $.get('', function (data) {
-            let remainingShort = data.remainingShortTrips;
-            let remainingLong = data.remainingLongTrips;
+            if (response.status === true) {
+                // Remove validation feedback if present
+                $(".form-control").removeClass('is-invalid');
+                $("p").removeClass('invalid-feedback').html('');
 
-            // Display remaining trips
-            $('#remainingTrips').text(`Short: ${remainingShort}, Long: ${remainingLong}`);
+                // Redirect after successful submission
+                window.location.href = "{{ route('makeListing') }}";
+            } else {
+                // Re-enable submit button
+                $("button[type='submit']").prop('disabled', false);
 
-            // Reset button state first
-            $('#saveTripBtn').prop('disabled', false).text('Post a Trip');
-            $('#upgradeMessage').hide();
-
-            // Disable Short Trip Button if Limit Reached
-            if (data.isShortTripsLimited && $('#trip_type').val() === "short") {
-                $('#saveTripBtn').prop('disabled', true).text('Upgrade to Add More Short Trips');
-                $('#upgradeText').text('You have used all your free short trips.');
-                $('#upgradeMessage').show();
-            }
-
-            // Disable Long Trip Button if Premium is Required
-            if (data.isLongTripsLimited && $('#trip_type').val() === "long") {
-                $('#saveTripBtn').prop('disabled', true).text('Only Premium Users Can Post Long Trips');
-                $('#upgradeText').text('Long trips are only for premium users.');
-                $('#upgradeMessage').show();
-            }
-
-            // Change button behavior dynamically
-            $('#trip_type').on('change', function () {
-                let selectedTripType = $(this).val();
-
-                $('#saveTripBtn').prop('disabled', false).text('Post a Trip');
-                $('#upgradeMessage').hide();
-
-                if (selectedTripType === "long" && data.isLongTripsLimited) {
-                    $('#saveTripBtn').prop('disabled', true).text('Only Premium Users Can Post Long Trips');
-                    $('#upgradeText').text('Long trips are only for premium users.');
-                    $('#upgradeMessage').show();
-                } 
-                if (selectedTripType === "short" && data.isShortTripsLimited) {
-                    $('#saveTripBtn').prop('disabled', true).text('Upgrade to Add More Trips');
-                    $('#upgradeText').text('You have used all your free short trips.');
-                    $('#upgradeMessage').show();
+                // Handle validation errors
+                var errors = response.errors;
+                for (var field in errors) {
+                    $("#" + field).addClass('is-invalid');
+                    $("#" + field).next("p").addClass('invalid-feedback').html(errors[field][0]);
                 }
-            });
+            }
+        },
+    error: function(xhr) {
+            console.log('Server Error:', xhr);
+            $("button[type='submit']").prop('disabled', false);
+        }
+});
 
-        });
-    });
+});
 </script>
 
 
+
+{{-- 
 
 <script type="text/javascript">
 $("#createTripForm").submit(function(e){
@@ -543,7 +386,7 @@ $("#createTripForm").submit(function(e){
 
 
                 // location.reload();
-               window.location.href="{{ route('account.myTrips') }}"
+               window.location.href=""
             } else {
                 var errors = response.errors;
 
@@ -827,6 +670,6 @@ $("#createTripForm").submit(function(e){
     });
 });
 
-</script>
+</script> --}}
 
 @endsection

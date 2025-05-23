@@ -8,5 +8,11 @@ use App\Http\Controllers\HomeController;
 Route::get('/',[HomeController::class, 'index'])->name('home');
 
 
-// Route::match(['get', 'post'], '/make-listing', [AccountController::class, 'makeListing'])->name('makeListing');
+Route::match(['get', 'post'], '/make-listing', [AccountController::class, 'makeListing'])->name('makeListing');
+
+
+
+Route::get('/subcategories/{category}', [AccountController::class, 'getSubcategories'])->name('subcategories.byCategory');
+Route::post('/save-post', [AccountController::class, 'savePost'])->name('savePost');
+
 
