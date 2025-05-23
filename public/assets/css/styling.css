@@ -1,0 +1,27 @@
+
+
+.scroll-wrapper {
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.scroll-content {
+    display: flex;
+    animation: scroll 10s linear infinite;
+}
+
+.scroll-card {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 1rem;
+}
+
+.scroll-wrapper:hover .scroll-content {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}

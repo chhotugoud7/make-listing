@@ -11,8 +11,11 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href=" {{ asset('assets/css/style.css') }}" />
+	<link rel="stylesheet" type="text/css" href=" {{ asset('assets/css/styling.css') }}" />
     <link rel="stylesheet" type="text/css" href=" {{ asset('assets/css/mystyle.css') }}" />
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 
 
 	<!-- jQuery -->
@@ -51,7 +54,7 @@
 						<a class="nav-link" aria-current="page" href="">Blogs</a>
 					</li>	 --}}
 					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="">Search</a>
+						<a class="nav-link" aria-current="page" href="/search">Search</a>
 					</li>	
 					{{-- <li class="nav-item">
                         <a class="nav-link" href="">Contact Us</a>

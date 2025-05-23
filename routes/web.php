@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 // Home Page
 Route::get('/',[HomeController::class, 'index'])->name('home');
@@ -16,3 +17,12 @@ Route::get('/subcategories/{category}', [AccountController::class, 'getSubcatego
 Route::post('/save-post', [AccountController::class, 'savePost'])->name('savePost');
 
 
+// web.php
+ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
+ // routes/web.php
+Route::get('/search', [PostController::class, 'search'])->name('search');
+
+Route::get('/api/subcategories/{category}', function($categoryId) {
+    return \App\Models\Subcategory::where('category_id', $categoryId)->get();
+});

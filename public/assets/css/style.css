@@ -9183,7 +9183,7 @@ h2 {
 h2:after {
   content: "";
   position: absolute;
-  background-color: #0dcaf0;
+  background-color: #ff8c00;
   width: 70px;
   height: 4px;
   bottom: 0px;
@@ -9257,12 +9257,12 @@ button.btn-primary:hover, button.btn-primary:focus, .btn.btn-primary:hover, .btn
   color: #ffffff;
 }
 button.btn-secondary, .btn.btn-secondary {
-  background: #242021;
+  /* background: #242021; */
   border: 2px solid #242021;
 }
 button.btn-secondary:hover, button.btn-secondary:focus, .btn.btn-secondary:hover, .btn.btn-secondary:focus {
   border: 2px solid #0dcaf0;
-  background: #0dcaf0;
+  background: #ff4500;
   color: #ffffff;
 }
 button.btn-outline-primary, .btn.btn-outline-primary {
@@ -10026,3 +10026,5 @@ footer .nav-link {
   content: '';
 }
 /* '' */
+
+
