@@ -24,4 +24,11 @@ class Category extends Model
     {
         return $this->hasMany(Subcategory::class); // now it works
     }
+
+    protected static function booted()
+{
+    static::deleting(function ($category) {
+        $category->subcategories()->delete(); // Delete related subcategories
+    });
+}
 }
