@@ -63,7 +63,7 @@
 				</ul>		
 				
 				<div>
-					<a class="btn btn-primary" href="{{ route('makeListing') }}" type="submit">Create a Trip</a>
+					<a class="btn btn-primary" href="{{ route('makeListing') }}" type="submit">Add Post</a>
 				</div>
 				
 				

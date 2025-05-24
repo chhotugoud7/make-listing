@@ -16,44 +16,6 @@
 
 
 
- {{-- featured section  --}}
-@if ($featuredPosts->isNotEmpty())
-<section class="section-3 py-5">
-    <div class="container">
-        <h2>Featured Listings</h2>
-        <div class="row pt-3">
-            @foreach ($featuredPosts as $post)
-                <div class="col-md-4">
-                    <div class="card border-0 p-3 shadow mb-4">
-                        @if($post->images->first())
-                            <img src="{{ asset('storage/' . $post->images->first()->image_path) }}" class="card-img-top" alt="{{ $post->title }}">
-                        @endif
-                        <div class="card-body">
-                            <h3 class="fs-5 pb-2 mb-0">{{ $post->title }}</h3>
-                            <p>{{ Str::words($post->description, 10, '...') }}</p>
-                            <div class="bg-light p-3 border">
-                                <p class="mb-0">
-                                    <strong>Location:</strong>
-                                    {{ $post->location ?? $post->locationRelation->name ?? 'N/A' }}
-                                </p>
-                                @if($post->price)
-                                    <p class="mb-0">
-                                        <strong>Price:</strong> ₹{{ number_format($post->price, 2) }}
-                                    </p>
-                                @endif
-                            </div>
-                            <div class="d-grid mt-3">
-                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary btn-lg">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
-
 
 {{-- latest post section 
  --}}
@@ -185,6 +147,46 @@
 
 
 
+
+
+
+ {{-- featured section  --}}
+@if ($featuredPosts->isNotEmpty())
+<section class="section-3 py-5">
+    <div class="container">
+        <h2>Featured Listings</h2>
+        <div class="row pt-3">
+            @foreach ($featuredPosts as $post)
+                <div class="col-md-4">
+                    <div class="card border-0 p-3 shadow mb-4">
+                        @if($post->images->first())
+                            <img src="{{ asset('storage/' . $post->images->first()->image_path) }}" class="card-img-top" alt="{{ $post->title }}">
+                        @endif
+                        <div class="card-body">
+                            <h3 class="fs-5 pb-2 mb-0">{{ $post->title }}</h3>
+                            <p>{{ Str::words($post->description, 10, '...') }}</p>
+                            <div class="bg-light p-3 border">
+                                <p class="mb-0">
+                                    <strong>Location:</strong>
+                                    {{ $post->location ?? $post->locationRelation->name ?? 'N/A' }}
+                                </p>
+                                @if($post->price)
+                                    <p class="mb-0">
+                                        <strong>Price:</strong> ₹{{ number_format($post->price, 2) }}
+                                    </p>
+                                @endif
+                            </div>
+                            <div class="d-grid mt-3">
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary btn-lg">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
 
 
 

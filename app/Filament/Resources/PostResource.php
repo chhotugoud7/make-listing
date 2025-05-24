@@ -23,12 +23,26 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('subcategory_id')
-                    ->numeric()
+                // Forms\Components\TextInput::make('category_id')
+                //     ->required()
+                //     ->numeric(),
+                // Forms\Components\TextInput::make('subcategory_id')
+                //     ->numeric()
+                //     ->default(null),
+                Forms\Components\Select::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+
+                Forms\Components\Select::make('subcategory_id')
+                    ->label('Subcategory')
+                    ->relationship('subcategory', 'name')
+                    ->searchable()
+                    ->preload()
                     ->default(null),
+
                 Forms\Components\TextInput::make('location')
                     ->maxLength(255)
                     ->default(null),
@@ -58,10 +72,29 @@ class PostResource extends Resource
                     ->default(null),
                 Forms\Components\Toggle::make('is_featured')
                     ->required(),
-                Forms\Components\TextInput::make('admin_status')
+                // Forms\Components\TextInput::make('admin_status')
+                //     ->required(),
+                // Forms\Components\TextInput::make('status')
+                //     ->required(),
+
+                Forms\Components\Select::make('admin_status')
+                        ->label('Admin Status')
+                        ->options([
+                            'pending' => 'Pending',
+                            'approved' => 'Approved',
+                            'rejected' => 'Rejected',
+                        ])
+                        ->required(),
+
+                Forms\Components\Select::make('status')
+                    ->label('Status')
+                    ->options([
+                        'active' => 'Active',
+                        'inactive' => 'Inactive',
+                        'expired' => 'Expired',
+                    ])
                     ->required(),
-                Forms\Components\TextInput::make('status')
-                    ->required(),
+
                 
                 Forms\Components\TextInput::make('latitude')
                     ->numeric()
@@ -76,12 +109,22 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('subcategory_id')
-                    ->numeric()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('category_id')
+                //     ->numeric()
+                //     ->sortable(),
+                // Tables\Columns\TextColumn::make('subcategory_id')
+                //     ->numeric()
+                //     ->sortable(),
+                Tables\Columns\TextColumn::make('category.name')
+                    ->label('Category')
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('subcategory.name')
+                    ->label('Subcategory')
+                    ->sortable()
+                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('location')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
@@ -99,8 +142,37 @@ class PostResource extends Resource
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_featured')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('admin_status'),
-                Tables\Columns\TextColumn::make('status'),
+                // Tables\Columns\TextColumn::make('admin_status'),
+                // Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\BadgeColumn::make('admin_status')
+                ->label('Admin Status')
+                ->formatStateUsing(fn (string $state) => match ($state) {
+                    'pending' => 'Pending',
+                    'approved' => 'Approved',
+                    'rejected' => 'Rejected',
+                    default => ucfirst($state),
+                })
+                ->colors([
+                    'pending' => 'warning',
+                    'approved' => 'success',
+                    'rejected' => 'danger',
+                ]),
+
+
+                Tables\Columns\BadgeColumn::make('status')
+                    ->label('Status')
+                    ->formatStateUsing(fn (string $state) => match ($state) {
+                        'active' => 'Active',
+                        'inactive' => 'Inactive',
+                        'expired' => 'Expired',
+                        default => ucfirst($state),
+                    })
+                    ->colors([
+                        'active' => 'success',
+                        'inactive' => 'secondary',
+                        'expired' => 'danger',
+                    ]),
+
                 
                 Tables\Columns\TextColumn::make('latitude')
                     ->numeric()

@@ -10,3 +10,5 @@ class CreateSubcategory extends CreateRecord
 {
     protected static string $resource = SubcategoryResource::class;
 }
+
+
