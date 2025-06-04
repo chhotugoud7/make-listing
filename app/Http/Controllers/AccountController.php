@@ -49,7 +49,7 @@ class AccountController extends Controller
         'category_id' => 'required|exists:categories,id',
         'subcategory_id' => 'nullable|exists:subcategories,id',
         'location' => 'required|string',
-        'price' => 'nullable|numeric|min:0',
+        // 'price' => 'nullable|numeric|min:0',
         'contact_name' => 'required|string|max:255',
         'email' => 'required|email',
         'phone' => 'required|string|max:20',
@@ -75,7 +75,7 @@ class AccountController extends Controller
     $post->location = $request->location;
     $post->latitude = $request->latitude;
     $post->longitude = $request->longitude;
-    $post->price = $request->price;
+    // $post->price = $request->price;
     $post->contact_name = $request->contact_name;
     $post->email = $request->email;
     $post->phone = $request->phone;

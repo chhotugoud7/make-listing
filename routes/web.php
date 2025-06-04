@@ -26,3 +26,7 @@ Route::get('/search', [PostController::class, 'search'])->name('search');
 Route::get('/api/subcategories/{category}', function($categoryId) {
     return \App\Models\Subcategory::where('category_id', $categoryId)->get();
 });
+
+
+// Route::get('/autocomplete', [App\Http\Controllers\SearchController::class, 'autocomplete']);
+Route::get('/autocomplete', [PostController::class, 'autocomplete'])->name('autocomplete');

@@ -12,7 +12,7 @@ class Post extends Model
     // Define fillable fields if using mass assignment
     protected $fillable = [
         'title', 'description', 'category_id', 'subcategory_id', 'location',
-        'latitude', 'longitude', 'price', 'contact_name', 'email', 'phone', 'tags'
+        'latitude', 'longitude', 'contact_name', 'email', 'phone', 'tags'
     ];
 
     // Relationship: One post has many images

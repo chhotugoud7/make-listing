@@ -27,16 +27,16 @@
 
 
 	<!-- Fav Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="" /></head>
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/logo.png') }}" /></head>
 <body data-instant-intensity="mousedown">
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
 		<div class="container">
-			<a class="navbar-brand" href="/">Make Listing</a>
+			{{-- <a class="navbar-brand" href="/">Nearest Find</a> --}}
 			
-			 {{-- <a class="navbar-brand" href="/">
-				<img src="" alt="TravelWith Logo" width="150" height="50">
-			</a> --}}
+			 <a class="navbar-brand" href="/">
+				<img src="{{ asset('assets/images/logo.png') }}" alt="Nearest Find" width="150" height="50">
+			</a>
 			
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

@@ -35,7 +35,7 @@
 
                             <!-- Title -->
                             <div class="mb-4">
-                                <label for="title" class="mb-2">Title <span class="req">*</span></label>
+                                <label for="title" class="mb-2">Business Name <span class="req">*</span></label>
                                 <input type="text" name="title" id="title" class="form-control" required>
                                 <p></p>
                             </div>
@@ -80,11 +80,11 @@
                             </div>
 
                             <!-- Price -->
-                            <div class="mb-4">
+                           {{-- <div class="mb-4">
                                 <label for="price" class="mb-2">Price (₹)</label>
                                 <input type="number" name="price" id="price" class="form-control" placeholder="Enter price">
                                 <p></p>
-                            </div>
+                            </div> --}}
 
                             <!-- Image Uploads -->
                             <div class="mb-4">

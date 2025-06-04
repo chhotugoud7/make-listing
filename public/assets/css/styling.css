@@ -25,3 +25,51 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+input::placeholder {
+    color: #888;
+}
+.btn-warning {
+    background-color: #ff6600;
+    border-color: #ff6600;
+    color: white;
+}
+.btn-warning:hover {
+    background-color: #e65c00;
+}
+
+
+.search-summary .headline {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.animated-count {
+    display: inline-block;
+    margin: 0 5px;
+    transform: translateY(0);
+    animation: float-up 1s ease-out forwards;
+}
+
+.count-number {
+    font-weight: bold;
+    color: #007BFF; /* Blue or change as needed */
+}
+
+.highlight {
+    margin-left: 5px;
+    color: #007BFF;
+}
+
+@keyframes float-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

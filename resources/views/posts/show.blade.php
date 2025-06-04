@@ -42,12 +42,12 @@
                                 </p>
                             @endif
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <p><i class="fas fa-money-bill-wave text-success me-2"></i><strong>Price:</strong> ₹{{ number_format($post->price, 2) }}</p>
                         </div>
                         <div class="col-md-6">
                             <p><i class="fas fa-user text-primary me-2"></i><strong>Posted by:</strong> {{ $post->author->name ?? $post->contact_name }}</p>
-                        </div>
+                        </div> --}}
                         <div class="col-md-6">
                             <p><i class="fas fa-calendar-alt text-warning me-2"></i><strong>Posted on:</strong> {{ $post->created_at->format('d M Y') }}</p>
                         </div>

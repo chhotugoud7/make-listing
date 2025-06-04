@@ -10,12 +10,12 @@
       </div>
       <div class="col-md-4">
         <form method="GET" action="{{ route('search') }}">
-          <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
+          {{-- <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
             <option value="latest" {{ request('sort') == 'latest' ? 'selected' : '' }}>Latest</option>
             <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Oldest</option>
             <option value="price_low" {{ request('sort') == 'price_low' ? 'selected' : '' }}>Price: Low to High</option>
             <option value="price_high" {{ request('sort') == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
-          </select>
+          </select> --}}
           <!-- Hidden inputs to preserve filters on sort -->
           @foreach(request()->except('sort', 'page') as $key => $value)
             @if(is_array($value))
@@ -68,7 +68,7 @@
             </div>
 
             {{-- Price Range --}}
-            <div class="mb-4 row">
+            {{-- <div class="mb-4 row">
               <div class="col">
                 <label for="min_price" class="form-label">Min Price</label>
                 <input type="number" name="min_price" id="min_price" class="form-control" min="0" placeholder="Min price" value="{{ request('min_price') }}">
@@ -77,7 +77,7 @@
                 <label for="max_price" class="form-label">Max Price</label>
                 <input type="number" name="max_price" id="max_price" class="form-control" min="0" placeholder="Max price" value="{{ request('max_price') }}">
               </div>
-            </div>
+            </div> --}}
 
             {{-- Tags --}}
             <div class="mb-4">
@@ -129,7 +129,7 @@
                             </div>
 
                             <p class="mb-1 text-muted small">
-                                <strong>Price:</strong> Rs. {{ number_format($post->price) }} <br>
+                                {{-- <strong>Price:</strong> Rs. {{ number_format($post->price) }} <br> --}}
                                 <strong>Location:</strong> {{ $post->location ?? 'N/A' }}
                             </p>
 
