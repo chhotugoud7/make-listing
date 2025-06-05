@@ -11,7 +11,7 @@
                 {{-- Post Image --}}
                @if ($post->images->first())
                 <img src="{{ asset('storage/' . $post->images->first()->image_path) }}" class="card-img-top" alt="{{ $post->title }}">
-            @endif
+                @endif
 
                 <div class="card-body p-5">
                     {{-- Title --}}

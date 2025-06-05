@@ -107,17 +107,14 @@
         <div class="row g-4">
             @foreach($posts as $post)
                 <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm rounded h-100">
+                    <div class="modern-card border-0 shadow-sm rounded h-100">
                         @if($post->images->first())
                             <img src="{{ asset('storage/' . $post->images->first()->image_path) }}" 
                                 class="card-img-top" 
                                 alt="{{ $post->title }}">
-                        @else
-                            <img src="{{ asset('default-image.jpg') }}" 
-                                class="card-img-top" 
-                                alt="No Image Available">
+                        
                         @endif
-                        <div class="card-body d-flex flex-column">
+                        <div class="modern-card-body d-flex flex-column">
                             <h5 class="card-title">{{ $post->title }}</h5>
                             <p class="card-text text-truncate">{{ Str::limit($post->description, 100) }}</p>
 

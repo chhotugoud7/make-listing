@@ -78,9 +78,9 @@
                     <div class="job_lists">
                         <div class="row">
                             @foreach ($latestPosts as $post)
-                                <div class="col-md-4">
-                                    <div class="card border-0 p-3 shadow mb-4">
-                                        <div class="card-body">
+                                <div class="col-md-4 mb-4">
+                                    <div class="modern-card border-0 p-3 shadow mb-4">
+                                        <div class="modern-card-body">
                                             <h3 class="fs-5 pb-2 mb-0">{{ $post->title }}</h3>
                                             <p>{{ Str::words($post->description, 10, '...') }}</p>
                                             
