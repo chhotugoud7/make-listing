@@ -50,8 +50,8 @@ class AccountController extends Controller
         'subcategory_id' => 'nullable|exists:subcategories,id',
         'location' => 'required|string',
         // 'price' => 'nullable|numeric|min:0',
-        'contact_name' => 'required|string|max:255',
-        'email' => 'required|email',
+        // 'contact_name' => 'required|string|max:255',
+        // 'email' => 'required|email',
         'phone' => 'required|string|max:20',
         'tags' => 'nullable|string',
         'images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
@@ -76,8 +76,8 @@ class AccountController extends Controller
     $post->latitude = $request->latitude;
     $post->longitude = $request->longitude;
     // $post->price = $request->price;
-    $post->contact_name = $request->contact_name;
-    $post->email = $request->email;
+    // $post->contact_name = $request->contact_name;
+    // $post->email = $request->email;
     $post->phone = $request->phone;
     $post->tags = $request->tags;
     $post->save();

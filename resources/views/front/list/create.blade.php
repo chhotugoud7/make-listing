@@ -93,7 +93,7 @@
                                 <p></p>
                             </div>
 
-                            <div class="mb-4">
+                            {{-- <div class="mb-4">
                                 <label for="contact_name" class="mb-2">Your Name <span class="req">*</span></label>
                                 <input type="text" name="contact_name" id="contact_name" class="form-control" required>
                                 <p></p>
@@ -103,7 +103,7 @@
                                 <label for="email" class="mb-2">Email Address <span class="req">*</span></label>
                                 <input type="email" name="email" id="email" class="form-control" required>
                                 <p></p>
-                            </div>
+                            </div> --}}
 
                             <div class="mb-4">
                                 <label for="phone" class="mb-2">Phone Number <span class="req">*</span></label>

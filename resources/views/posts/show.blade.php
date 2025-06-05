@@ -66,8 +66,8 @@
                     {{-- Contact Info --}}
                     <div class="mt-5 p-4 bg-light rounded border">
                         <h5 class="text-dark mb-3"><i class="fas fa-phone me-2"></i>Contact Details</h5>
-                        <p class="mb-1"><strong>Name:</strong> {{ $post->contact_name ?? 'N/A' }}</p>
-                        <p class="mb-1"><strong>Email:</strong> <a href="mailto:{{ $post->email }}">{{ $post->email }}</a></p>
+                        {{-- <p class="mb-1"><strong>Name:</strong> {{ $post->contact_name ?? 'N/A' }}</p>
+                        <p class="mb-1"><strong>Email:</strong> <a href="mailto:{{ $post->email }}">{{ $post->email }}</a></p> --}}
                         <p class="mb-0"><strong>Phone:</strong> <a href="tel:{{ $post->phone }}">{{ $post->phone }}</a></p>
                     </div>
 
