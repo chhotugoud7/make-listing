@@ -6,16 +6,17 @@
   <div class="container">
     <div class="row mb-4 align-items-center">
       <div class="col-md-8">
-        <h3 style="color:#ff8c00">Search here</h3>
+        {{-- <h3 style="color:#ff8c00">Search here</h3> --}}
+         <h2 style="color:#ff8c00">Search here</h2>
       </div>
-      <div class="col-md-4">
+      {{-- <div class="col-md-4">
         <form method="GET" action="{{ route('search') }}">
-          {{-- <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
+          <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
             <option value="latest" {{ request('sort') == 'latest' ? 'selected' : '' }}>Latest</option>
             <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Oldest</option>
             <option value="price_low" {{ request('sort') == 'price_low' ? 'selected' : '' }}>Price: Low to High</option>
             <option value="price_high" {{ request('sort') == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
-          </select> --}}
+          </select> 
           <!-- Hidden inputs to preserve filters on sort -->
           @foreach(request()->except('sort', 'page') as $key => $value)
             @if(is_array($value))
@@ -27,7 +28,7 @@
             @endif
           @endforeach
         </form>
-      </div>
+      </div> --}}
     </div>
 
     <div class="row">

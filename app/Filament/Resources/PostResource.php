@@ -52,17 +52,17 @@ class PostResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('price')
-                    ->numeric()
-                    ->default(null)
-                    ->prefix('$'),
-                Forms\Components\TextInput::make('contact_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('price')
+                //     ->numeric()
+                //     ->default(null)
+                //     ->prefix('$'),
+                // Forms\Components\TextInput::make('contact_name')
+                //     ->required()
+                //     ->maxLength(255),
+                // Forms\Components\TextInput::make('email')
+                //     ->email()
+                //     ->required()
+                //     ->maxLength(255),
                 Forms\Components\TextInput::make('phone')
                     ->tel()
                     ->required()
@@ -77,14 +77,14 @@ class PostResource extends Resource
                 // Forms\Components\TextInput::make('status')
                 //     ->required(),
 
-                Forms\Components\Select::make('admin_status')
-                        ->label('Admin Status')
-                        ->options([
-                            'pending' => 'Pending',
-                            'approved' => 'Approved',
-                            'rejected' => 'Rejected',
-                        ])
-                        ->required(),
+                // Forms\Components\Select::make('admin_status')
+                //         ->label('Admin Status')
+                //         ->options([
+                //             'pending' => 'Pending',
+                //             'approved' => 'Approved',
+                //             'rejected' => 'Rejected',
+                //         ])
+                //         ->required(),
 
                 Forms\Components\Select::make('status')
                     ->label('Status')
@@ -96,12 +96,12 @@ class PostResource extends Resource
                     ->required(),
 
                 
-                Forms\Components\TextInput::make('latitude')
-                    ->numeric()
-                    ->default(null),
-                Forms\Components\TextInput::make('longitude')
-                    ->numeric()
-                    ->default(null),
+                // Forms\Components\TextInput::make('latitude')
+                //     ->numeric()
+                //     ->default(null),
+                // Forms\Components\TextInput::make('longitude')
+                //     ->numeric()
+                //     ->default(null),
             ]);
     }
 
@@ -129,13 +129,13 @@ class PostResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('price')
-                    ->money()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('contact_name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('price')
+                //     ->money()
+                //     ->sortable(),
+                // Tables\Columns\TextColumn::make('contact_name')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('email')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tags')
@@ -144,19 +144,19 @@ class PostResource extends Resource
                     ->boolean(),
                 // Tables\Columns\TextColumn::make('admin_status'),
                 // Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\BadgeColumn::make('admin_status')
-                ->label('Admin Status')
-                ->formatStateUsing(fn (string $state) => match ($state) {
-                    'pending' => 'Pending',
-                    'approved' => 'Approved',
-                    'rejected' => 'Rejected',
-                    default => ucfirst($state),
-                })
-                ->colors([
-                    'pending' => 'warning',
-                    'approved' => 'success',
-                    'rejected' => 'danger',
-                ]),
+                // Tables\Columns\BadgeColumn::make('admin_status')
+                // ->label('Admin Status')
+                // ->formatStateUsing(fn (string $state) => match ($state) {
+                //     'pending' => 'Pending',
+                //     'approved' => 'Approved',
+                //     'rejected' => 'Rejected',
+                //     default => ucfirst($state),
+                // })
+                // ->colors([
+                //     'pending' => 'warning',
+                //     'approved' => 'success',
+                //     'rejected' => 'danger',
+                // ]),
 
 
                 Tables\Columns\BadgeColumn::make('status')
@@ -174,12 +174,12 @@ class PostResource extends Resource
                     ]),
 
                 
-                Tables\Columns\TextColumn::make('latitude')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('longitude')
-                    ->numeric()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('latitude')
+                //     ->numeric()
+                //     ->sortable(),
+                // Tables\Columns\TextColumn::make('longitude')
+                //     ->numeric()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -16,10 +16,11 @@ public function index()
                          ->where('status', 'active')
                          ->with('images') // if using images
                          ->latest()
-                         ->take(6)
+                         ->take(9)
                          ->get();
 
-$latestPosts = Post::with(['category', 'subcategory', 'images'])
+    $latestPosts = Post::with(['category', 'subcategory', 'images'])
+                     ->where('status', 'active')
                    ->orderBy('created_at', 'desc')
                    ->take(6)
                    ->get();

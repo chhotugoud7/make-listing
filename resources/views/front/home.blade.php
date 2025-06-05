@@ -12,22 +12,24 @@
         </div>
     </div>
 </section> --}}
-<section class="section-3 py-5 bg-light">
-    <div class="container">
-        <div class="search-summary text-center my-4">
-    <h3 class="headline">
-        Search across
-        <span class="animated-count">
-            <span class="count-number">4.7 Crore+</span>
-            <span class="highlight">Businesses</span>
-        </span>
-        &
-        <span class="animated-count">
-            <span class="count-number">5.9 Crore+</span>
-            <span class="highlight">Products & Services</span>
-        </span>
-    </h3>
-</div>
+
+
+<section class="search-section py-5 ">
+        <div class="search1-container">
+            <div class="search-summary text-center my-4">
+            <h3 class="headline">
+                Search across
+                <span class="animated-count">
+                    <span class="count-number">4.7 Crore+</span>
+                    <span class="highlight">Businesses</span>
+                </span>
+                &
+                <span class="animated-count">
+                    <span class="count-number">5.9 Crore+</span>
+                    <span class="highlight">Products & Services</span>
+                </span>
+            </h3>
+         </div>
 
         <form method="GET" action="{{ route('search') }}">
             <div class="row justify-content-center align-items-center">
@@ -289,7 +291,7 @@
     border: 1px solid #ddd;
     max-height: 200px;
     overflow-y: auto;
-    width: 100%;
+    
 }
 </style>
 

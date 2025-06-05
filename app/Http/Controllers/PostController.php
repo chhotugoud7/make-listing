@@ -100,6 +100,11 @@ public function search(Request $request)
 {
     $query = Post::query();
 
+
+    // Only show active posts
+$query->where('status', 'active');
+
+
     // Filter by category
     if ($request->filled('category_id')) {
         $query->where('category_id', $request->category_id);
@@ -200,11 +205,21 @@ public function search(Request $request)
         $results = array_merge($results, $subcategories);
 
         // Search in post titles/descriptions
-        $posts = Post::where('title', 'LIKE', '%' . $query . '%')
-                    ->orWhere('description', 'LIKE', '%' . $query . '%')
-                    ->limit(5)
-                    ->pluck('title')
-                    ->toArray();
+        // $posts = Post::where('title', 'LIKE', '%' . $query . '%')
+        //             ->orWhere('description', 'LIKE', '%' . $query . '%')
+        //             ->limit(5)
+        //             ->pluck('title')
+        //             ->toArray();
+
+        $posts = Post::where('status', 'active') // only active posts
+            ->where(function ($q) use ($query) {
+                $q->where('title', 'LIKE', '%' . $query . '%')
+                  ->orWhere('description', 'LIKE', '%' . $query . '%');
+            })
+            ->limit(10)
+            ->pluck('title')
+            ->toArray();
+
 
         $results = array_merge($results, $posts);
 

@@ -9,10 +9,12 @@ class Post extends Model
 {
     use HasFactory;
 
-    // Define fillable fields if using mass assignment
+    // Define fillable fields for mass assignment
     protected $fillable = [
         'title', 'description', 'category_id', 'subcategory_id', 'location',
-        'latitude', 'longitude', 'contact_name', 'email', 'phone', 'tags'
+        'latitude', 'longitude', 'contact_name', 'email', 'phone', 'tags',
+        'is_featured',  // Added this
+        'status',       // Added this
     ];
 
     // Relationship: One post has many images
@@ -20,7 +22,9 @@ class Post extends Model
     {
         return $this->hasMany(Image::class);
     }
-      public function category()
+
+    // Relationships for category and subcategory
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
