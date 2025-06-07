@@ -53,3 +53,12 @@ Route::get('/api/subcategories/{category}', function($categoryId) {
 
 // Route::get('/autocomplete', [App\Http\Controllers\SearchController::class, 'autocomplete']);
 Route::get('/autocomplete', [PostController::class, 'autocomplete'])->name('autocomplete');
+
+
+use App\Http\Controllers\PageController;
+
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy');
+Route::get('/cancellation-refund', [PageController::class, 'cancellation'])->name('cancellation');
+Route::get('/contact-us', [PageController::class, 'contact'])->name('contact');
+Route::get('/terms-conditions', [PageController::class, 'terms'])->name('terms');

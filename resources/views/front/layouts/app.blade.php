@@ -85,19 +85,19 @@
             <div class="col-md-4 text-start">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="">About</a>
+                        <a class="nav-link text-white" href="{{ route('about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="">Privacy Policy</a>
+                        <a class="nav-link text-white" href="{{ route('privacy') }}">Privacy Policy</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="">Cancellation and refunds</a>
+                        <a class="nav-link text-white" href="{{ route('cancellation') }}">Cancellation and refunds</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="">Contact Us</a>
+                        <a class="nav-link text-white" href="{{ route('contact') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="">Terms & Conditions</a>
+                        <a class="nav-link text-white" href="{{ route('terms') }}">Terms & Conditions</a>
                     </li>
                 </ul>
             </div>
