@@ -81,7 +81,10 @@
                         <div class="row">
                             @foreach ($latestPosts as $post)
                                 <div class="col-md-4 mb-4">
-                                    <div class="modern-card border-0 p-3 shadow mb-4">
+                                    <div class="modern-card border-0 p-3 shadow mb-4"
+                                        style="cursor: pointer;"
+                                        onclick="window.location.href='{{ route('posts.show', $post->id) }}'"
+                                    >
                                         <div class="modern-card-body">
                                             <h3 class="fs-5 pb-2 mb-0">{{ $post->title }}</h3>
                                             <p>{{ Str::words($post->description, 10, '...') }}</p>
@@ -204,12 +207,15 @@
         <h2>Featured Listings</h2>
         <div class="row pt-3">
             @foreach ($featuredPosts as $post)
-                <div class="col-md-4">
-                    <div class="card border-0 p-3 shadow mb-4">
+                <div class="col-md-4"
+                style="cursor: pointer;"
+                                        onclick="window.location.href='{{ route('posts.show', $post->id) }}'"
+                                  >
+                    <div class="modern-card border-0 p-3 shadow mb-4">
                         @if($post->images->first())
                             <img src="{{ asset('storage/' . $post->images->first()->image_path) }}" class="card-img-top" alt="{{ $post->title }}">
                         @endif
-                        <div class="card-body">
+                        <div class="modern-card-body">
                             <h3 class="fs-5 pb-2 mb-0">{{ $post->title }}</h3>
                             <p>{{ Str::words($post->description, 10, '...') }}</p>
                             <div class="bg-light p-3 border">

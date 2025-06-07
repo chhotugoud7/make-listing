@@ -105,9 +105,13 @@
         <!-- Search Results -->
 <div class="col-md-8 col-lg-9">
     @if($posts->count())
-        <div class="row g-4">
+        <div class="row g-4"
+        >
             @foreach($posts as $post)
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4"
+                style="cursor: pointer;"
+                                        onclick="window.location.href='{{ route('posts.show', $post->id) }}'"
+                                  >
                     <div class="modern-card border-0 shadow-sm rounded h-100">
                         @if($post->images->first())
                             <img src="{{ asset('storage/' . $post->images->first()->image_path) }}" 
