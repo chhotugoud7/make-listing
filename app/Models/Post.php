@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes; // Add this
 
 class Post extends Model
 {
-    use HasFactory;
-
+    use HasFactory, SoftDeletes; // Add SoftDeletes here
     // Define fillable fields for mass assignment
     protected $fillable = [
         'title', 'description', 'category_id', 'subcategory_id', 'location',
